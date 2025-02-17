@@ -46,48 +46,37 @@
     .button:hover {
       background-color: #555;
     }
-
-    .result {
-      margin-top: 20px;
-      color: #dcdcdc;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Inserisci il testo</h1>
+    <h1>Search Sol OG on pump.fun</h1>
     <input type="text" id="inputText" class="input-box" placeholder="Scrivi qualcosa...">
     <div>
       <button class="button" id="submitBtn">Get</button>
-    </div>
-    <div class="result" id="result">
-      <!-- Risultato qui -->
     </div>
   </div>
 
   <script>
     const inputText = document.getElementById("inputText");
     const submitBtn = document.getElementById("submitBtn");
-    const result = document.getElementById("result");
 
-    // Funzione per aggiungere il testo e fare la ricerca
-    function submitText() {
+    // Funzione per aprire il link direttamente
+    function openLink() {
       const query = inputText.value.trim();
       if (query) {
         const url = `https://pump.fun/board?searchTerm=${encodeURIComponent(query)}&coins_sort=created_timestamp&coins_order=ASC`;
-        result.innerHTML = `<p>Risultato per: <a href="${url}" target="_blank">${query}</a></p>`;
-      } else {
-        result.innerHTML = `<p>Per favore inserisci un testo.</p>`;
+        window.open(url, '_blank'); // Apre il link in una nuova scheda
       }
     }
 
     // Cliccando su "Get"
-    submitBtn.addEventListener("click", submitText);
+    submitBtn.addEventListener("click", openLink);
 
     // Premendo Enter nella casella di testo
     inputText.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
-        submitText();
+        openLink();
       }
     });
   </script>
