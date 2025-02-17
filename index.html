@@ -11,7 +11,8 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      height: 100vh;
+      height: 100%;
+      width: 400px; /* Larghezza fissa per il popup */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -46,11 +47,24 @@
     .button:hover {
       background-color: #555;
     }
+
+    a {
+      text-decoration: none;
+      color: grey;
+    }
+
+    a:hover {
+      color: grey;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Search Sol OG on pump.fun</h1>
+    <div>
+      <a>Extension made by </a><a href="https://x.com/b1mm1stacks" target="_blank">@b1mm1stacks</a><a> on X.</a>
+	  <a> </a>
+    </div>
     <input type="text" id="inputText" class="input-box" placeholder="Scrivi qualcosa...">
     <div>
       <button class="button" id="submitBtn">Get</button>
