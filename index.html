@@ -12,7 +12,6 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      width: 400px; /* Larghezza fissa per il popup */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -20,9 +19,10 @@
 
     .container {
       text-align: center;
-      border: 2px solid #fff;
       padding: 20px;
       border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
     }
 
     .input-box {
@@ -31,7 +31,7 @@
       border: none;
       padding: 10px;
       border-radius: 5px;
-      width: 300px;
+      width: 100%;
       margin-bottom: 20px;
     }
 
@@ -42,6 +42,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      width: 100%;
     }
 
     .button:hover {
@@ -56,18 +57,27 @@
     a:hover {
       color: grey;
     }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Search Sol OG on pump.fun</h1>
-    <div>
-      <a>Extension made by </a><a href="https://x.com/b1mm1stacks" target="_blank">@b1mm1stacks</a><a> on X.</a>
-	  <a> </a>
-    </div>
     <input type="text" id="inputText" class="input-box" placeholder="Scrivi qualcosa...">
     <div>
       <button class="button" id="submitBtn">Get</button>
+    </div>
+    <div class="footer">
+      <a href="https://x.com/b1mm1stacks" target="_blank">@b1mm1stacks</a> on X.
     </div>
   </div>
 
