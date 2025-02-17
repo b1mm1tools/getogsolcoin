@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaccia Scura</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      border: 2px solid #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .input-box {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background-color: #444;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #555;
+    }
+
+    .result {
+      margin-top: 20px;
+      color: #dcdcdc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Inserisci il testo</h1>
+    <input type="text" id="inputText" class="input-box" placeholder="Scrivi qualcosa...">
+    <div>
+      <button class="button" id="submitBtn">Get</button>
+    </div>
+    <div class="result" id="result">
+      <!-- Risultato qui -->
+    </div>
+  </div>
+
+  <script>
+    const inputText = document.getElementById("inputText");
+    const submitBtn = document.getElementById("submitBtn");
+    const result = document.getElementById("result");
+
+    // Funzione per aggiungere il testo e fare la ricerca
+    function submitText() {
+      const query = inputText.value.trim();
+      if (query) {
+        const url = `https://pump.fun/board?searchTerm=${encodeURIComponent(query)}&coins_sort=created_timestamp&coins_order=ASC`;
+        result.innerHTML = `<p>Risultato per: <a href="${url}" target="_blank">${query}</a></p>`;
+      } else {
+        result.innerHTML = `<p>Per favore inserisci un testo.</p>`;
+      }
+    }
+
+    // Cliccando su "Get"
+    submitBtn.addEventListener("click", submitText);
+
+    // Premendo Enter nella casella di testo
+    inputText.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        submitText();
+      }
+    });
+  </script>
+</body>
+</html>
